@@ -1,0 +1,35 @@
+<article id="post" class="post">
+  <header>
+    <time datetime='{{ page.date | date_to_utc | date:"%Y-%m-%dT%H:%M:00Z" }}' class='meta entry-time'>{{ page.date | date:"%b %d, %Y" }}</time>
+    <h1 class='entry-title'>
+      <a href='{{ page.url }}'>{{ page.title }}</a>
+    </h1>
+    <p class="meta entry-tags">
+  {% if page.tags != empty %}
+    {% for tag in page.tags %}<span class="tag">#{{ tag }}&nbsp;</span>{% endfor %}
+  {% endif %}
+  </p>
+  </header>
+
+  <section class='body'>
+    {{ content }}
+  </section>
+
+  <footer>
+    <div class="tweet">
+        <a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-url="{{site.base_url}}{{ page.url }}" data-text="Arollavengers's - {{page.title}}" data-via="arollavengers">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+    </div>
+    <div class="plusone">
+        <g:plusone size="small" href="{{site.base_url}}{{ page.url }}"></g:plusone>
+    </div>
+    
+    <div id="related">
+      <h2>Related Posts</h2>
+      <ul class="posts">
+        {% for post in site.related_posts limit:3 %}
+          <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </footer>
+</article>

@@ -1,0 +1,43 @@
+---
+layout: post
+title: "Welcome"
+category: posts
+tags:
+  - tdd
+  - bdd
+  - ddd
+  - cqrs
+  - event-sourcing
+  - game
+  - pandémie
+published: true
+comments: false
+excerpt: |
+  Et voila, le premier post de notre site! Il a pour but de présenter notre projet, placer quelques bases et donner quelques directions.
+---
+{{page.excerpt | markdownify }}
+
+h2. Résultat du Sondage
+
+Le choix du premier jeu se porte sur "Pandémie":http://l2mj.crocpom.fr/?p=603 et sur "TricTrac":http://www.trictrac.net/index.php3?id=jeux&rub=detail&inf=detail&jeu=10114.
+Une version pdf des rêgles et donc du *Domaine métier* est disponible "ici":/documents/pandemie/pandemic_vf.fr
+
+Les choix des langages se portent principalement sur Java, Groovy, Scala et Javascript. La volonté de renforcer ses acquis sur des technos standards est aussi souhaité, et l'idée d'avoir plusieurs implémentations est une piste interessante pour découvrir de nouveaux langages.
+
+Il est donc important de choisir dès le départ une architecture souple permettant un changement aisée d'implémentation.
+
+Tout le monde semble interessé par une approche alliant TDD, BDD et DDD. Les patterns architecturaux tel que Event Sourcing, CQRS, Eventually Consistent, Distributed System, Architecture Elastique ont semblent-ils aiguisé un peu les curiosités.
+
+h2. Proposition initiale
+
+<figure>
+  <img src="/images/architecture/draft000.png" alt="Vision globale" />
+  <figcaption>Visionn globale</figcaption>
+</figure>
+
+Nous pourrions donc commencer par une implémentation de type Java, SpringMVC
+
+* Front: html5, css3, javascript, RIA, single page application, websocket...
+* FrontEnd: essentiellement un passe plat en NodeJS
+* BackEnd: Techno java on conforte les bases! SpringMVC, Hibernate, Jackson (JSON)...
+

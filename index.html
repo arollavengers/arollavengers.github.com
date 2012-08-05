@@ -1,0 +1,13 @@
+---
+layout: default
+title: Arollavengers
+excerpt: true
+---
+
+<div id="home">
+
+  {% for post in site.posts limit:15 %}
+    {% include excerpt-post.html %}
+  {% endfor %}
+
+</div>

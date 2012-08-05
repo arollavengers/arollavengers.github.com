@@ -1,0 +1,5 @@
+markdown: rdiscount
+pygments: true
+
+base_url: http://arollavengers.github.com
+full_content: true
