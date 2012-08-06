@@ -20,24 +20,86 @@ excerpt: |
 h2. Résultat du Sondage
 
 Le choix du premier jeu se porte sur "Pandémie":http://l2mj.crocpom.fr/?p=603 et sur "TricTrac":http://www.trictrac.net/index.php3?id=jeux&rub=detail&inf=detail&jeu=10114.
-Une version pdf des rêgles et donc du *Domaine métier* est disponible "ici":/documents/pandemie/pandemic_vf.fr
+Une version simplifiée des rêgles et donc du *Domaine métier* est disponible "ici":/documents/pandemie/pandemic_vf.fr
 
-Les choix des langages se portent principalement sur Java, Groovy, Scala et Javascript. La volonté de renforcer ses acquis sur des technos standards est aussi souhaité, et l'idée d'avoir plusieurs implémentations est une piste interessante pour découvrir de nouveaux langages.
+Les choix des langages se portent principalement sur Java, Groovy, Scala et Javascript. La volonté de renforcer ses acquis sur des technos standards est aussi souhaitée. 
 
-Il est donc important de choisir dès le départ une architecture souple permettant un changement aisée d'implémentation.
+L'idée d'avoir plusieurs implémentations est une piste interessante pour découvrir de nouveaux langages. Il est donc important de choisir dès le départ une architecture souple permettant un changement aisée d'implémentation.
 
 Tout le monde semble interessé par une approche alliant TDD, BDD et DDD. Les patterns architecturaux tel que Event Sourcing, CQRS, Eventually Consistent, Distributed System, Architecture Elastique ont semblent-ils aiguisé un peu les curiosités.
 
-h2. Proposition initiale
+h3. Front, FrontEnd et BackEnd
+
+Tout le monde est interessé par les parties Front, FrontEnd et Backend. Sans grande surprise le Front fait l'uninanimité sur les technologies Html5, CSS3 et Javascript, le choix reste mitigé entre BackboneJS et EmberJS.
+
+La partie FrontEnd semble aussi interessé tout le monde et le choix technologique n'est pas très marqué si ce n'est une petite préférence pour NodeJS. Cette partie étant, dans un premier temps essentiellement un passe-plat entre le navigateur et le Backend, cela est une opportunité de découvrir NodeJS et Javascript sur une base de code
+réduite.
+
+Le sondage de la partie Backend ressemble énormément à la partie FrontEnd avec un léger avantage pour NodeJS. Cependant, la volonté de renforcer ses acquis sur des technos dites standards me pousse plutôt à opter pour une approche type JavaEE plus classique pour l'implémentation de référence du Backend: Spring (IOC, MVC, Security, ...) et Hibernate. Ce qui pousse aussi à choisir pour cette implémentation un système de persistence type SQLDB même si les bases NoSQL ont rencontré un fort succès, notamment Cassandra et CouchDB.
+
+La partie ServiceBus n'a pas rencontré le succès esconté certainement dû au manque de visibilité sur son interêt.
+
+h2. Proposition initiale et investigations préliminaires
 
 <figure>
   <img src="/images/architecture/draft000.png" alt="Vision globale" />
-  <figcaption>Visionn globale</figcaption>
+  <figcaption>Vision globale</figcaption>
 </figure>
 
-Nous pourrions donc commencer par une implémentation de type Java, SpringMVC
+Voici la proposition initiale:
 
-* Front: html5, css3, javascript, RIA, single page application, websocket...
-* FrontEnd: essentiellement un passe plat en NodeJS
-* BackEnd: Techno java on conforte les bases! SpringMVC, Hibernate, Jackson (JSON)...
+* Une partie **Front** (tournant sur le navigateur) autour des technologies suivantes:
+  * Html5
+    * à étudier: l'api Canvas
+  * CSS3
+    * à étudier/choisir: Stylus vs Less vs Sasl
+  * RIA/Single page application
+    * à étudier/choisir: EmberJS, BackboneJS, SpineJS ou autre...
+  * Websocket certainement via l'API socket.io de NodeJS
+
+* Une partie **FrontEnd** qui servira d'intermédiaire à la couche service et de passe-plat entre la partie **Front** et la partie **Backend**
+  * L'implémentation de réference se basera sur "NodeJS":
+  * A étudier/choisir: Event Driven Architecture, ...
+
+* Une partie **Backend** qui contiendra toute l'intelligence et la partie "métier" de notre application.
+  * L'implémentation de référence se basera sur des technologies Java dites standards afin de renforcer ou d'affirmer nos connaissances sur ces standards:
+    * Spring: MVC, IOC, Security
+    * Hibernate
+    * JSON: xstream/Jackson...
+
+Afin de découvrir de nouveaux patterns d'architectures, le Backend sera développé selon une approche de type DDD qui est un peu à la mode: l'approche CQRS. Cette approche en tant que telle n'a rien de bien nouveau si elle n'est pas associée aussi à l'Event Sourcing.
+
+Les communications entre les différentes couches se feront par appel HTTP en suivant une approche de type REST.
+
+
+Voici donc quelques sujets/POC (Proof Of Concepts) pour les articles techniques futurs:
+
+* "Git":http://git-scm.com/book/fr
+* Html5/Canvas
+* CSS3/CSS
+* RIA/Single page Application
+* Websocket
+* Javascript
+* Spring 
+  * MVC
+  * Security
+  * IOC
+* Hibernate
+* "NodeJS":http://nodejs.org/
+* CQRS
+* Event Sourcing
+* HTTP/REST/json
+
+h3. Etude du domaine
+
+En attendant de plus amples détails un résumé des rêgles est disponibles "ici":/documents/pandemie/pandemic_vf.pdf
+
+
+h2. Github & Le Blog
+
+Le repository Git du projet sera hébergé sur Github, ainsi que le site et le blog. Le site et le blog sont basé sur le framework Jekyll proposé par Github.
+
+Le format "textile":http://redcloth.org/hobix.com/textile/ et "markdown":http://daringfireball.net/projects/markdown/
+
+La documentation est à venir.
 
