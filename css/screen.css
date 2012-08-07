@@ -23,8 +23,7 @@ body {
   text-align: center;
 }
 
-h1,
-h1 a {
+h1 {
   font-size: 140%;
   line-height: 1.5em;
 }
@@ -334,7 +333,7 @@ h1.title span.char13 { color:#F1FE00; }
   .post .entry-time {
     margin-top: 7px;
     position:absolute;
-    left:-100px;
+    left:-110px;
   }
 
   .post .entry-tags {
