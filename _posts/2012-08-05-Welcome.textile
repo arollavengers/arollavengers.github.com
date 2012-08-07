@@ -19,7 +19,7 @@ excerpt: |
 
 h2. Résultat du Sondage
 
-Le choix du premier jeu se porte sur "Pandémie":http://l2mj.crocpom.fr/?p=603 et sur "TricTrac":http://www.trictrac.net/index.php3?id=jeux&rub=detail&inf=detail&jeu=10114.
+Le choix du premier jeu se porte sur "Pandémie":http://l2mj.crocpom.fr/?p=603 (sur "TricTrac":http://www.trictrac.net/index.php3?id=jeux&rub=detail&inf=detail&jeu=10114).
 Une version simplifiée des rêgles et donc du *Domaine métier* est disponible "ici":/documents/pandemie/pandemic_vf.fr
 
 Les choix des langages se portent principalement sur Java, Groovy, Scala et Javascript. La volonté de renforcer ses acquis sur des technos standards est aussi souhaitée. 
@@ -49,23 +49,23 @@ h2. Proposition initiale et investigations préliminaires
 Voici la proposition initiale:
 
 * Une partie **Front** (tournant sur le navigateur) autour des technologies suivantes:
-  * Html5
-    * à étudier: l'api Canvas
-  * CSS3
-    * à étudier/choisir: Stylus vs Less vs Sasl
-  * RIA/Single page application
-    * à étudier/choisir: EmberJS, BackboneJS, SpineJS ou autre...
-  * Websocket certainement via l'API socket.io de NodeJS
+** Html5
+*** à étudier: l'api Canvas
+** CSS3
+*** à étudier/choisir: Stylus vs Less vs Sasl
+** RIA/Single page application
+*** à étudier/choisir: EmberJS, BackboneJS, SpineJS ou autre...
+** Websocket certainement via l'API socket.io de NodeJS
 
 * Une partie **FrontEnd** qui servira d'intermédiaire à la couche service et de passe-plat entre la partie **Front** et la partie **Backend**
-  * L'implémentation de réference se basera sur "NodeJS":
-  * A étudier/choisir: Event Driven Architecture, ...
+** L'implémentation de réference se basera sur "NodeJS":
+** A étudier/choisir: Event Driven Architecture, ...
 
 * Une partie **Backend** qui contiendra toute l'intelligence et la partie "métier" de notre application.
-  * L'implémentation de référence se basera sur des technologies Java dites standards afin de renforcer ou d'affirmer nos connaissances sur ces standards:
-    * Spring: MVC, IOC, Security
-    * Hibernate
-    * JSON: xstream/Jackson...
+** L'implémentation de référence se basera sur des technologies Java dites standards afin de renforcer ou d'affirmer nos connaissances sur ces standards:
+*** Spring: MVC, IOC, Security
+*** Hibernate
+*** JSON: xstream/Jackson...
 
 Afin de découvrir de nouveaux patterns d'architectures, le Backend sera développé selon une approche de type DDD qui est un peu à la mode: l'approche CQRS. Cette approche en tant que telle n'a rien de bien nouveau si elle n'est pas associée aussi à l'Event Sourcing.
 
@@ -81,9 +81,9 @@ Voici donc quelques sujets/POC (Proof Of Concepts) pour les articles techniques 
 * Websocket
 * Javascript
 * Spring 
-  * MVC
-  * Security
-  * IOC
+** MVC
+** Security
+** IOC
 * Hibernate
 * "NodeJS":http://nodejs.org/
 * CQRS
@@ -92,7 +92,7 @@ Voici donc quelques sujets/POC (Proof Of Concepts) pour les articles techniques 
 
 h3. Etude du domaine
 
-En attendant de plus amples détails un résumé des rêgles est disponibles "ici":/documents/pandemie/pandemic_vf.pdf
+En attendant de plus amples détails un résumé des rêgles est disponible "ici":/documents/pandemie/pandemic_vf.pdf
 
 
 h2. Github & Le Blog

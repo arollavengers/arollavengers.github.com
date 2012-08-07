@@ -22,69 +22,69 @@ excerpt: |
 {{page.excerpt | markdownify }}
 
 * "Git":http://git-scm.com/book/fr
-  * "Une Référence Visuelle de Git":http://marklodato.github.com/visual-git-guide/index-fr.html
+** "Une Référence Visuelle de Git":http://marklodato.github.com/visual-git-guide/index-fr.html
 
 * Html5/Canvas
-  * "Dive into Html5":http://diveintohtml5.info/
-    * "Canvas":http://diveintohtml5.info/canvas.html
-  * "Modernizr":http://modernizr.com/
-  * "Html5 readiness":http://html5readiness.com/
-  * "Html5 rocks":http://www.html5rocks.com/en/
-  * "Learning the basics of HTML5 canvas":http://www.netmagazine.com/tutorials/learning-basics-html5-canvas
+** "Dive into Html5":http://diveintohtml5.info/
+*** "Canvas":http://diveintohtml5.info/canvas.html
+** "Modernizr":http://modernizr.com/
+** "Html5 readiness":http://html5readiness.com/
+** "Html5 rocks":http://www.html5rocks.com/en/
+** "Learning the basics of HTML5 canvas":http://www.netmagazine.com/tutorials/learning-basics-html5-canvas
 
 * CSS3/CSS
-  * "Stylus":http://learnboost.github.com/stylus/
-  * "Less":http://lesscss.org/
-  * "Sass":http://sass-lang.com/
-  * "Sass vs. LESS vs. Stylus: Preprocessor Shootout":http://net.tutsplus.com/tutorials/html-css-techniques/sass-vs-less-vs-stylus-a-preprocessor-shootout/
-  * "SASS vs. LESS":http://css-tricks.com/sass-vs-less/
-  * "A Beginner’s Guide to Using Google Web Fonts":http://designshack.net/articles/css/a-beginners-guide-to-using-google-web-fonts/
+** "Stylus":http://learnboost.github.com/stylus/
+** "Less":http://lesscss.org/
+** "Sass":http://sass-lang.com/
+** "Sass vs. LESS vs. Stylus: Preprocessor Shootout":http://net.tutsplus.com/tutorials/html-css-techniques/sass-vs-less-vs-stylus-a-preprocessor-shootout/
+** "SASS vs. LESS":http://css-tricks.com/sass-vs-less/
+** "A Beginner’s Guide to Using Google Web Fonts":http://designshack.net/articles/css/a-beginners-guide-to-using-google-web-fonts/
 
 * RIA/Single page Application
-  * "Journey Through The JavaScript MVC Jungle":http://coding.smashingmagazine.com/2012/07/27/journey-through-the-javascript-mvc-jungle/
-  * "The Top 10 Javascript MVC Frameworks Reviewed":http://codebrief.com/2012/01/the-top-10-javascript-mvc-frameworks-reviewed/
-  * "EmberJS":http://emberjs.com/
-  * "Backbone.js":http://documentcloud.github.com/backbone/
-  * "Building a single page app with Backbone.js, underscore.js and jQuery":http://andyet.net/blog/2010/oct/29/building-a-single-page-app-with-backbonejs-undersc/
-  * "Build a Contacts Manager Using Backbone.js: Part 1":http://net.tutsplus.com/tutorials/javascript-ajax/build-a-contacts-manager-using-backbone-js-part-1/
-  * "BACKBONE AND EMBER":http://smus.com/backbone-and-ember/
-  * "Building a Text-Based UI with Backbone and Charm":http://tobyho.com/2012/07/19/backbone-charm-text-based-ui/
+** "Journey Through The JavaScript MVC Jungle":http://coding.smashingmagazine.com/2012/07/27/journey-through-the-javascript-mvc-jungle/
+** "The Top 10 Javascript MVC Frameworks Reviewed":http://codebrief.com/2012/01/the-top-10-javascript-mvc-frameworks-reviewed/
+** "EmberJS":http://emberjs.com/
+** "Backbone.js":http://documentcloud.github.com/backbone/
+** "Building a single page app with Backbone.js, underscore.js and jQuery":http://andyet.net/blog/2010/oct/29/building-a-single-page-app-with-backbonejs-undersc/
+** "Build a Contacts Manager Using Backbone.js: Part 1":http://net.tutsplus.com/tutorials/javascript-ajax/build-a-contacts-manager-using-backbone-js-part-1/
+** "BACKBONE AND EMBER":http://smus.com/backbone-and-ember/
+** "Building a Text-Based UI with Backbone and Charm":http://tobyho.com/2012/07/19/backbone-charm-text-based-ui/
 
 * Websocket
-  * "socket.io":http://socket.io/
+** "socket.io":http://socket.io/
 
 * Javascript
-  * "Require.js":http://requirejs.org/
-  * "Underscore":http://documentcloud.github.com/underscore/
+** "Require.js":http://requirejs.org/
+** "Underscore":http://documentcloud.github.com/underscore/
 
 * Spring 
-  * MVC
-  * Security
-  * IOC
+** MVC
+** Security
+** IOC
 
 * Hibernate
 
 * "NodeJS":http://nodejs.org/
-  * "Node.js : le livre du débutant":http://nodejs.developpez.com/tutoriels/javascript/node-js-livre-debutant/
-  * "NodeJS best practices":http://www.slideshare.net/the_undefined/nodejs-best-practices-10428790
+** "Node.js : le livre du débutant":http://nodejs.developpez.com/tutoriels/javascript/node-js-livre-debutant/
+** "NodeJS best practices":http://www.slideshare.net/the_undefined/nodejs-best-practices-10428790
 
 * CQRS
-  * "CQRS":http://martinfowler.com/bliki/CQRS.html
-  * "CQRS a la Greg Young":http://elegantcode.com/2009/11/11/cqrs-la-greg-young/
-  * "CQRS – The Domain Events":http://elegantcode.com/2009/11/20/cqrs-the-domain-events/
-  * "CQRS Starting Page":http://abdullin.com/cqrs/
-  * "Clarified CQRS":http://www.udidahan.com/2009/12/09/clarified-cqrs/
-  * "Mindmap CQRS":http://www.mindmeister.com/de/177815383/cqrs
-  * "Mindmap CQRS/DDD Links":http://www.mindmeister.com/de/181195534/cqrs-ddd-links
+** "CQRS":http://martinfowler.com/bliki/CQRS.html
+** "CQRS a la Greg Young":http://elegantcode.com/2009/11/11/cqrs-la-greg-young/
+** "CQRS – The Domain Events":http://elegantcode.com/2009/11/20/cqrs-the-domain-events/
+** "CQRS Starting Page":http://abdullin.com/cqrs/
+** "Clarified CQRS":http://www.udidahan.com/2009/12/09/clarified-cqrs/
+** "Mindmap CQRS":http://www.mindmeister.com/de/177815383/cqrs
+** "Mindmap CQRS/DDD Links":http://www.mindmeister.com/de/181195534/cqrs-ddd-links
 
 * Event Sourcing
-  * "Event Sourcing":http://martinfowler.com/eaaDev/EventSourcing.html
-  * "L'Event sourcing c'est quoi?":http://arnauld.github.com/Blog/2011/10/11/Event-sourcing.html
-  * "Simple event sourcing – introduction (part 1)":http://blog.zilverline.com/2012/07/04/simple-event-sourcing-introduction-part-1/
-  * "Simple event sourcing – consistency (part 2)":http://blog.zilverline.com/2012/07/23/simple-event-sourcing-consistency-part-2/
+** "Event Sourcing":http://martinfowler.com/eaaDev/EventSourcing.html
+** "L'Event sourcing c'est quoi?":http://arnauld.github.com/Blog/2011/10/11/Event-sourcing.html
+** "Simple event sourcing – introduction (part 1)":http://blog.zilverline.com/2012/07/04/simple-event-sourcing-introduction-part-1/
+** "Simple event sourcing – consistency (part 2)":http://blog.zilverline.com/2012/07/23/simple-event-sourcing-consistency-part-2/
 
 * HTTP/REST/json
-  * "REST":http://microformats.org/wiki/rest/urls
-  * "Representational State Transfer ~ Distributed Architectures with HTTP":http://berb.github.com/rest-talk-uulm/#1
-  * "RESTful API Design: Second Edition”  Webinar - Video & slides":http://blog.apigee.com/detail/slides_for_restful_api_design_second_edition_webinar/
+** "REST":http://microformats.org/wiki/rest/urls
+** "Representational State Transfer ~ Distributed Architectures with HTTP":http://berb.github.com/rest-talk-uulm/#1
+** "RESTful API Design: Second Edition”  Webinar - Video & slides":http://blog.apigee.com/detail/slides_for_restful_api_design_second_edition_webinar/
 
