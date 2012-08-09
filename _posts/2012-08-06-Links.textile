@@ -50,6 +50,7 @@ excerpt: |
 * RIA/Single page Application
 ** "Journey Through The JavaScript MVC Jungle":http://coding.smashingmagazine.com/2012/07/27/journey-through-the-javascript-mvc-jungle/
 ** "The Top 10 Javascript MVC Frameworks Reviewed":http://codebrief.com/2012/01/the-top-10-javascript-mvc-frameworks-reviewed/
+** "Rich JavaScript Applications – the Seven Frameworks (Throne of JS, 2012)":http://blog.stevensanderson.com/2012/08/01/rich-javascript-applications-the-seven-frameworks-throne-of-js-2012/
 ** "EmberJS":http://emberjs.com/
 ** "Backbone.js":http://documentcloud.github.com/backbone/
 *** "Building a single page app with Backbone.js, underscore.js and jQuery":http://andyet.net/blog/2010/oct/29/building-a-single-page-app-with-backbonejs-undersc/
