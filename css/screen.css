@@ -237,6 +237,17 @@ h1.title span.char11 { color:#E2D400; }
 h1.title span.char12 { color:#EAE900; }
 h1.title span.char13 { color:#F1FE00; }
 
+h1 small {
+  font: 10px helvetica, arial, clean, sans-serif;
+  letter-spacing: 1px;
+  font-style: italic;
+}
+
+.label {
+  color: white;
+  font: 10px helvetica, arial, clean, sans-serif;
+}
+
 .title {
   color: #a00;
   font-family: 'Bangers', cursive;

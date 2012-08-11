@@ -16,6 +16,7 @@ tags:
   - rest
 published: true
 comments: false
+last_update: 2012-08-11
 excerpt: |
   Quelques liens et notes autour de Git, Javascript, HTML5, CSS3, RIA, CQRS, ...
 ---
@@ -46,6 +47,7 @@ excerpt: |
 *** "inuit.css":http://csswizardry.com/inuitcss/
 *** "Fluid 960 Grid System":http://960.gs/
 *** "1140 CSS Grid":http://cssgrid.net/
+*** "Which Is Right for Me? 22 Responsive CSS Frameworks and Boilerplates Explained":http://designshack.net/articles/css/which-is-right-for-me-22-responsive-css-frameworks-and-boilerplates-explained/ ~ On remarquera particulierement le framework "The Semantic Grid System":http://semantic.gs/ qui utilise Less, Stylus ou Sass pour disposer des fonctionalités d'un framework de grille tout en conservant la sémantique du contenu. <span class='label sucess'>2012/08/08</span> <span class='label warning'>+1</span>
 
 * RIA/Single page Application
 ** "Journey Through The JavaScript MVC Jungle":http://coding.smashingmagazine.com/2012/07/27/journey-through-the-javascript-mvc-jungle/
@@ -81,6 +83,7 @@ excerpt: |
 * "NodeJS":http://nodejs.org/
 ** "Node.js : le livre du débutant":http://nodejs.developpez.com/tutoriels/javascript/node-js-livre-debutant/
 ** "NodeJS best practices":http://www.slideshare.net/the_undefined/nodejs-best-practices-10428790
+** "Express.js":http://expressjs.com/ <span class='label sucess'>2012/08/08</span>
 
 * CQRS
 ** "CQRS":http://martinfowler.com/bliki/CQRS.html
@@ -94,8 +97,10 @@ excerpt: |
 * Event Sourcing
 ** "Event Sourcing":http://martinfowler.com/eaaDev/EventSourcing.html
 ** "L'Event sourcing c'est quoi?":http://arnauld.github.com/Blog/2011/10/11/Event-sourcing.html
-** "Simple event sourcing – introduction (part 1)":http://blog.zilverline.com/2012/07/04/simple-event-sourcing-introduction-part-1/
-** "Simple event sourcing – consistency (part 2)":http://blog.zilverline.com/2012/07/23/simple-event-sourcing-consistency-part-2/
+** "Simple event sourcing – introduction ~ part 1":http://blog.zilverline.com/2012/07/04/simple-event-sourcing-introduction-part-1/
+** "Simple event sourcing – consistency ~ part 2":http://blog.zilverline.com/2012/07/23/simple-event-sourcing-consistency-part-2/
+** "Simple event sourcing – Redis event store ~ part 3":http://blog.zilverline.com/2012/07/30/simple-event-sourcing-redis-event-store-part-3/ <span class='label sucess'>2012/08/11</span>
+** "Simple Event Sourcing – conflict resolution ~ part 4":http://blog.zilverline.com/2012/08/08/simple-event-sourcing-conflict-resolution-part-4/ <span class='label sucess'>2012/08/11</span>
 
 * HTTP/REST/json
 ** "REST":http://microformats.org/wiki/rest/urls

@@ -1,0 +1,27 @@
+---
+layout: post
+title: "Squelette du Backend-java"
+category: posts
+tags:
+  - java
+  - backend
+  - springmvc
+  - maven
+published: false
+comments: false
+excerpt: |
+  Voici quelques explication sur l'organisation du Backend-java.
+---
+{{page.excerpt | markdownify }}
+
+Le project "Backend-java":https://github.com/arollavengers/backend-java est un projet maven multi-modules:
+
+* `backend-parent`: Il s'agit du projet parent de tous les autres modules.
+* `backend-allInOne`: Il s'agit du projet aggregateur.
+* `backend-core`
+* `backend-webapp-springmvc`
+* `backend-end2endTests`
+
+`backend-parent`: Il s'agit du projet parent de tous les autres modules. Il définit notament la version de chaque artefact dont les sous-modules pourraient avoir besoin.
+
+`backend-allInOne`: Il s'agit du projet aggregateur. Il permet de construire l'ensemble des sous modules grâce à une seule ligne de commande, il se charge ensuite d'executer cette commande sur tous les modules qu'il référence, et ce, dans l'ordre des dépendances.

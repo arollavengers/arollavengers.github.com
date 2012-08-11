@@ -2,7 +2,9 @@
   <header>
     <time datetime='{{ post.date | date_to_utc | date:"%Y-%m-%dT%H:%M:00Z" }}' class='meta entry-time'>{{ post.date | date:"%b %d, %Y" }}</time>
     <h1 class='entry-title'>
-      <a href='{{ post.url }}'>{{ post.title }}</a>
+      <a href='{{ post.url }}'>{{ post.title }}</a> {% if post.last_update %} <small>(Dernière mise à jour
+      <span class='label warning'>{{ post.last_update | date:"%Y/%m/%d" }}</span>)</small>
+      {% endif %}
     </h1>
     <p class="meta entry-tags">
     {% if post.tags != empty %}
@@ -10,7 +12,6 @@
     {% endif %}
     </p>
   </header>
-
   <section class='body'>
       {% if post.excerpt %}
         {{post.excerpt | markdownify }}

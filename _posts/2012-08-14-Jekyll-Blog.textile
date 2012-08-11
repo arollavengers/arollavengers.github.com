@@ -1,0 +1,25 @@
+---
+layout: post
+title: "Jekyll, Liquid et le le site Github"
+category: posts
+tags:
+  - links
+  - javascript
+  - html5
+  - css3
+  - ria
+  - spring
+  - hibernate
+  - cqrs
+  - event-sourcing
+  - rest
+published: false
+comments: false
+last_update: 2012-08-11
+excerpt: |
+  <span class="label warning">In Progress // Incubation</span><br/>
+---
+{{page.excerpt | markdownify }}
+
+
+http://liquid.rubyforge.org/classes/Liquid/StandardFilters.html#M000012
