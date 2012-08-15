@@ -1,0 +1,34 @@
+---
+layout: post
+title: "Un début de domain model"
+category: posts
+tags:
+  - modélisation
+  - UML
+published: true
+comments: false
+last_update: 2012-08-15
+excerpt: |
+  Un premier brouillon
+---
+{{page.excerpt | markdownify }}
+
+<img style="background-color:green" src="/documents/ClassDiagram.png"/>
+
+J'ai essayé de modéliser le jeu avec un "diagramme de classe":/documents/model.zargo UML. J'ai utilisé le logiciel "argoUML":http://argouml.tigris.org 
+Les actions relatives aux cartes spéciales n'ont pas été modélisées (le PO n'est pas très locace sur ce point)
+
+
+Concernant la méthodologie, j'ai construit le diagramme au fur et à mesure que je lisais les règles. Puis j'essayais de reconstruire les phrases en naviguant dans le modèle.
+
+
+Ce début de modèle est grossier et est une simple transcription des règles. Il y a des rafinements à faire et j'ai déjà une petite liste de corrections à apporter.
+
+
+Reste à extraire les phrases des règles du jeu et pour chacune vérifier si elle est implémentable dans le domain
+
+
+Puisqu'on a le jeu en anglais, faut-il utiliser l'anglais ?
+
+
+Voilà ! Prêt à "cruncher" ...
