@@ -7,7 +7,7 @@ tags:
   - overview
   - architecture
   - event-sourcing
-published: true
+published: false
 comments: false
 excerpt: |
   <span class="label warning">In Progress // Incubation</span><br/>
