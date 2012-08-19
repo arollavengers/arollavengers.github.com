@@ -1,0 +1,47 @@
+---
+layout: post
+title: "Pandémie évolution ~ incubation"
+category: posts
+tags:
+  - pandémie
+  - overview
+  - architecture
+published: false
+comments: false
+excerpt: |
+  <span class="label warning">In Progress // Incubation</span><br/>
+---
+{{page.excerpt | markdownify }}
+
+h2. Disgression et mutation du discours et du contenu
+
+Le projet que nous menons étant un projet où nous fixerons nous même le contour technique et métier, nous pouvons laisser libre cours à notre créativité pour tordre les rêgles initiales et imaginer les futures évolutions de notre jeu. 
+Nous pouvons aussi envisager/évoquer des solutions techniques aux besoins fonctionnels décrits par les rêgles
+
+* jeu de coopération
+** envisager un système de chat?
+
+* monde/planête
+** pourquoi pas étendre le concept à une galaxie: le jeu s'appliquerai alors sur plusieurs planètes aux conditions climatiques/réseau de transport/type d'infection différents...
+** ajouter un mode "ville" de gestion plus "micro": un mélange sim-city/theme hospital, voir les séries "NIH":http://fr.wikipedia.org/wiki/NIH_:_Alertes_m%C3%A9dicales et "Burning Zone":http://fr.wikipedia.org/wiki/Burning_zone_:_menace_imminente...
+
+* quatre maladies mortelles:
+** l'une caractéristique que l'on retrouve souvent dans les virus est le fait qu'il mute. Il pourrait être interessant de voir la mutation des maladies, l'émergence de nouveaux virus issus de nouvelles souches, des expériences militaires ratées, des fuites dans un labo. pharmaceutique, guerre bacteriologique, ...
+*** si une maladie de type A est mise en contact avec une maladie de type B, un nouvelle maladie avec des caractéristiques de A et de B pourrait être générée (cf génétique, caractéristique et gêne recessif/dominant, algorithme de mutation génétique, etc...)
+** un remêde trouvé pour une combinaison particulière devra être lui aussi "muté" pour soigner les mutations correspondantes
+** exemple de propriété permettant de "définir" une maladie
+*** type: virus, bactérie, parasite...
+*** persistance, virulence
+*** mode de transmission: aérien, contact, "postillons", ...
+*** vecteur de transport: objet, humain, insecte, animaux, alimentation...
+*** facteur de contagion: élevée, moyenne, faible...
+*** durée de vie, d'incubation, de contagion...
+*** symptomes: fièvres, douleur, toussement, vomissement, diahrée, fatigue...
+** foyer d'infection: modifier les facteurs de transmissions en fonction de la géopolitique locale
+*** utiliser les flux mondiaux: réseau de transports, tourisme, marchandise, frêt aérien/ferré comme vecteur de contamination
+
+
+
+# Architecture globale
+
+# Et le Domain Driven Design?
