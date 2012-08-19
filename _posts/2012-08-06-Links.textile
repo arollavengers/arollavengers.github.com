@@ -16,7 +16,7 @@ tags:
   - rest
 published: true
 comments: false
-last_update: 2012-08-11
+last_update: 2012-08-15
 excerpt: |
   Quelques liens et notes autour de Git, Javascript, HTML5, CSS3, RIA, CQRS, ...
 ---
@@ -99,6 +99,7 @@ excerpt: |
 ** "Clarified CQRS":http://www.udidahan.com/2009/12/09/clarified-cqrs/
 ** "Mindmap CQRS":http://www.mindmeister.com/de/177815383/cqrs
 ** "Mindmap CQRS/DDD Links":http://www.mindmeister.com/de/181195534/cqrs-ddd-links
+** "Video de Greg Young sur CQRS":https://www.youtube.com/watch?v=KXqrBySgX-s Petite astuce : demimo = domain model. "Les slides":http://www.slideshare.net/devnology/unleash-your-domain-with-greg-young <span class='label sucess'>2012/08/15</span>
 
 * Event Sourcing
 ** "Event Sourcing":http://martinfowler.com/eaaDev/EventSourcing.html
