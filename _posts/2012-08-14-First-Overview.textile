@@ -1,0 +1,537 @@
+---
+layout: post
+title: "Vision globale (1ère version)"
+category: posts
+tags:
+  - pandémie
+  - overview
+  - architecture
+  - event-sourcing
+published: true
+comments: false
+excerpt: |
+  <span class="label warning">In Progress // Incubation</span><br/>
+  L'une des principales difficultés que l'on peux rencontrer à la création d'un projet collaboratif est le partage d'une vision globale, et la route à suivre pour y contribuer.
+  Chacun a sa propre vision, conçoit ou n'arrive justement pas à convevoir ses propres briques dans sa tête: comment démarrer? que doit-on faire? et si j'étais à côté de la plaque... Le but de ce post est justement une tentative pour répondre à ces questions, et va proposer les premières étapes de ce projet.
+
+---
+{{page.excerpt | markdownify }}
+
+<notextile><style>
+blockquote strong {
+    background-color: #AE4001;
+}
+section.body {
+    position : relative;
+}
+.sidenote {
+    position : absolute;
+       right : -220px;
+       width : 200px;
+      border : #A2B6DB;
+       float : right;
+}
+</style></notextile>
+
+h1. Le "métier"
+
+Commençons par passer quelques temps sur l'analyse du domaine métier. Il s'agit là de faire de l'analyse de texte, comme en première! Le but est de détecter les mots clés et concepts principaux qui ressortent, ce sont eux qui définiront notre domaine métier. Le code et les régles du jeu utiliseront ainsi le même langage. Ce langage sera alors omniprésent: à la fois dans la description de l'application que dans son implémentation, on parle d' *ubiquitous language* en DDD (Domain Driven Design).
+
+<blockquote><p>Vous et votre compagnie êtes des *membres* très qualifiés d'équipes de luttes contre les *maladies* menant une bataille contre *quatre maladies mortelles*. Votre équipe va parcourir *le monde* afin d'enrayer la vague d'infections et de développer les ressources dont vous aurez besoin pour découvrir les *remèdes*. Vous devez *travailler ensemble*, utiliser vos forces individuelles pour *éradiquer les maladies* avant qu'elles ne dépassent le monde. Le temps presse alors que les *foyers d'infection* accélèrent la propagation de la peste. Allez-vous trouver les remèdes à temps ? Le sort de l'humanité est entre vos mains!</p>
+<small>Rêgle du jeu ~ Synopsis</small></blockquote>
+
+<blockquote><p>Pandemic est un *jeu de coopération*. Vous et vos compagnons êtes membres d'une équipe de contrôle des *maladies*, travaillant ensemble à la *recherche des remèdes* et prévenant les *nouveaux foyers d'infection*. Chacun de vous va assumer un *rôle unique* dans l'équipe, avec des *capacités spéciales* qui vont augmenter les chances de réussite de l'équipe si utilisées judicieusement. L'objectif est de sauver l'humanité en découvrant les *remèdes* contre quatre maladies mortelles (Bleu, Jaune, Noir et Rouge) qui risquent d’envahir la planète.</p>
+<small>Rêgle du jeu ~ But du jeu</small></blockquote>
+
+A la lecture de ces deux paragraphes de présentation voici les mots clés/concepts principaux qui ressortent:
+
+* jeu de coopération
+** équipe
+** membre d'une équipe
+** rôle unique de chaque membre
+*** capacité spéciale
+* monde/planête
+** parcourir le monde
+* maladie
+** foyer d'infection
+** remêde
+** quatre maladies mortelles: Bleu, Jaune, Noir, Rouge
+
+Continuons, la lecture des rêgles:
+
+<blockquote><p>
+...
+2. Mélangez les cartes Rôle et distribuez-en 1 à chaque joueur. Chaque joueur prend le *pion* correspondant et le place à *Atlanta*. Remettez les cartes Rôle et les pions restants (si il y en a) dans la boîte.
+3. Placez une *Station de Recherche* à Atlanta et placez les autres près du *plateau de jeu*.
+4. Placez le *marqueur Foyer d’Infection* sur le "0" de l'indicateur de Foyers d’Infection, le *marqueur de Taux d'infection* est sur la première case de la piste Taux d'infection (marqué "2") et les 4 *marqueurs Remède* près de la zone *Remèdes Découverts*.
+5. Séparez les *cubes Maladies* par *couleur* et placez-les près du *plateau de jeu* en 4 piles séparées.
+...
+6. Retirez les 6 *cartes Epidémie* des *cartes Joueur* et placez-les sur le côté pour le moment.
+7. Mélangez les *cartes Joueur* restantes (avec le verso bleu) et distribuez-en aux joueurs face cachée: 4 joueurs: 2 cartes chacun, 3 joueurs: 3 cartes chacun, 2 joueurs: 4 cartes chacun
+...
+11. Placez les *cubes Maladie* de départ: 
+  a) Tirez 3 cartes de la pile des *cartes Infection* et placez-les face visible sur la *défausse des cartes Infection*. Pour chaque carte tirée, ajoutez 3 *cubes* (de la couleur de la carte) sur chaque *ville représentée*.
+  b) Tirez 3 cartes de plus et faites de même que ci-dessus mais ajoutez 2 *cubes* sur chaque *ville représentée*.
+  c) Tirez les 3 dernières cartes et faites de même mais en ajoutant 1 *cube par ville*.
+</p>
+<small>Rêgle du jeu ~ Mise en place</small></blockquote>
+
+* plateau de jeu: le monde
+* chaque joueur à un rôle et un pion
+* les pions sont dans une ville (e.g. Atlanta)
+** Station de recherche peuvent être déployée dans une ville
+* le nombre de Foyer d'infection, taux d'infection, remêde, remêde découvert
+* cube maladie
+** possède une couleur
+** une ville peux avoir plusieurs cubes de maladie
+* carte joueur
+** peux aussi être une carte épidémie
+** chaque joueur peux avoir zéro ou plusieurs cartes
+* carte infection
+** associée à une ville
+** associée à une couleur de maladie
+
+h3. Définition du Domaine ~ Ubiquitous Language
+
+Tentons de représenter cela par quelques schémas:
+
+<figure>
+    <figcaption>Equipe et membres</figcaption>
+    <img src="/images/post/first-overview/first-overview-001-LR.png" alt="Equipe et membres" />
+</figure>
+
+<figure>
+  <figcaption>Le monde et les villes</figcaption>
+  <img src="/images/post/first-overview/first-overview-001a-LR.png" alt="Le monde et les villes" />
+</figure>
+
+<figure>
+  <figcaption>Les villes et la contamination</figcaption>
+  <img src="/images/post/first-overview/first-overview-001c-LR.png" alt="Les villes et la contamination" />
+</figure>
+
+<figure>
+  <figcaption>Les remêdes découverts par l'équipe</figcaption>
+  <img src="/images/post/first-overview/first-overview-001b-LR.png" alt="Les remêdes découverts par l'équipe" />
+</figure>
+
+<figure>
+  <figcaption>Les cartes et les piles</figcaption>
+  <img src="/images/post/first-overview/first-overview-002b-cards-TD.png" alt="Les cartes et les piles" />
+</figure>
+
+Entité (au sens DDD) et `ValueObject`:
+
+* `World` (le monde), ou `Board` ou `Game` correspond à la partie en train d'être jouée
+* `Team` (équipe): groupe de membre, ne correspond pas vraiment à une entité à proprement parlé...
+* `Member` (membre de l'équipe, joueur): correspond à un utilisateur de l'application et un rôle dans le contexte d'une partie de jeu
+
+
+
+h3. Les Actions
+
+Continuons de parcourir les rêgles pour nous attaquer aux actions, de la même manière que précédémment voici les schémas qui en ressortent:
+
+<figure>
+  <figcaption>Les actions basiques</figcaption>
+  <img src="/images/post/first-overview/first-overview-003-actions-TD.png" alt="Les actions basiques" />
+</figure>
+
+<figure>
+  <figcaption>Les actions spéciales</figcaption>
+  <img src="/images/post/first-overview/first-overview-004b-actions-TD.png" alt="Les actions spéciales" />
+</figure>
+
+Enumérons les actions possibles:
+
+<figure>
+  <figcaption>Conduire (ou Traverser)</figcaption>
+  <img src="/images/post/first-overview/first-overview-003b-actions-LR.png" alt="Conduire (ou Traverser)" />
+</figure>
+
+<figure>
+  <figcaption>Vol direct</figcaption>
+  <img src="/images/post/first-overview/first-overview-003c-actions-TD.png" alt="Vol direct" />
+</figure>
+
+<figure>
+  <figcaption>Vol Charter</figcaption>
+  <img src="/images/post/first-overview/first-overview-003d-actions-TD.png" alt="Vol Charter" />
+</figure>
+
+<figure>
+  <figcaption>Vol en Navette</figcaption>
+  <img src="/images/post/first-overview/first-overview-003e-actions-LR.png" alt="Vol en Navette" />
+</figure>
+
+Et c'est là que les choses se compliquent:
+
+<figure>
+  <figcaption>L'Expéditeur</figcaption>
+  <img src="/images/post/first-overview/first-overview-003f-actions-TD.png" alt="L'Expéditeur" />
+</figure>
+
+L'action d'un joueur peut être déclenchée par une autre personne que ce joueur, si cette autre personne est *l'expéditeur*. Prenons cela en compte:
+
+<figure>
+  <figcaption>Invoqueur et cible</figcaption>
+  <img src="/images/post/first-overview/first-overview-003g-actions-LR.png" alt="Invoqueur et cible" />
+</figure>
+
+Prenons un peu de recul et voyons si l'on ne pourrait pas aboutir à une autre modélisation. Hormis l'action de "Passer" toutes les actions basiques sont en fait des actions de déplacement pour aller d'une ville à une autre.
+S'agissant d'un jeu informatisé, il est plus simple pour le joueur de dire où il souhaite aller, et le moteur de jeu lui indiquera si ce déplacement est autorisé et les conditions requises. Les conditions requises pour le déplacement dépendent:
+
+* des villes adjacentes au joueur
+* de la présence d'un centre de recherche dans la ville du joueur
+* des cartes disponibles dans la main du joueur
+* qui fait l'action sur quel joueur
+
+<figure>
+  <figcaption>Actions basiques: Déplacement et Passer</figcaption>
+  <img src="/images/post/first-overview/first-overview-004-actions-TD.png" alt="Actions basiques: Déplacement et Passer" />
+</figure>
+
+Il s'agit sans doute d'une piste à étudier, mais ne statuons pas encore sur la modélisation finale, et continuons notre reflexion.
+
+D'autre part, afin de simplifier la vie du joueur, il peux donc être interessant avant **chaque action** d'indiquer au joueur toutes les actions possibles dans la ville ou il se situe et tous les déplacements (destinations... genre simulateur de billard pour les différents sauts de puces) possibles.
+
+<figure>
+  <figcaption>Service de Déplacement</figcaption>
+  <img src="/images/post/first-overview/first-overview-010-services-LR.png" alt="Service de Déplacement" />
+</figure>
+
+Au vu de la représentation du plateau de jeu et des requêtes "spatiales" que l'on aura à faire, les villes pourraient être structurées sous forme de graphe ("Théorie des Graphes":http://fr.wikipedia.org/wiki/Th%C3%A9orie_des_graphes).
+
+<figure>
+  <figcaption>Graphe des villes</figcaption>
+  <img src="/images/post/first-overview/first-overview-020-board-LR.png" alt="Graphe des villes" />
+</figure>
+
+h1. Le déroulement d'une partie
+
+Nous venons de voir une bonne partie des éléments statiques de notre partie. Attaquons nous désormais au déroulement d'une partie de deux joueurs sur quelques tours, et nous en profiterons pour introduire en même temps la notion d'*Event Sourcing*.
+
+<blockquote><p>Captures all changes to an application state as a sequence of events.<br/>
+    (...)
+The key to Event Sourcing is that we guarantee that all changes to the domain objects are initiated by the event objects.</p><small><a href="http://martinfowler.com/eaaDev/EventSourcing.html">Martin Fowler ~ Event Sourcing</a></small></blockquote>
+
+Autrement dit, au lieu de conserver le dernier état d’un objet, on conserve toutes les transitions qui ont amené à cet état. En conservant l’ensemble de ces transitions, il est ainsi possible de rejouer les différents états pris par l’objet au cours de son cycle de vie. Plus important encore, ce n’est pas seulement le changement d’état qui est conservé, mais l’intention de l’utilisateur qui a provoqué ce changement.
+
+Tout d'abord le contexte:
+
+<blockquote><p>
+Plusieurs tours se sont déroulés dans la partie et c'est maintenant au tour de Brian le Scientifique (Pion Blanc). Actuellement, Brian est à Manille. Plus tôt dans le jeu la maladie Rouge a été éradiquée. Jane est l'Experte en Opérations (Pion Vert) et voisine à Chennai, où elle a construit récemment une Station de Recherche. Le tour de Brian débute.</p><small>Rêgle du jeu ~ OU LES CHOSES SE PASSENT</small></blockquote>
+
+<blockquote><p>
+ACTION 1
+La maladie Jaune s'est propagée à Manille et Brian décide de la traiter. Il dépense sa première action pour Traiter une Maladie, et retire 1 cube de la maladie Jaune de Manille.
+</p><small>Rêgle du jeu ~ OU LES CHOSES SE PASSENT</small></blockquote>
+
+Voici une première version du code que l'on pourrait avoir dans l'application:
+
+{% highlight java linenos %}
+City city = world.getCity("Manille");
+CureAction cure = new CureAction(brian, city, Disease.Yellow);
+cure.execute();
+{% endhighlight %}
+
+avec comme implementation pour l'action `CureAction`:
+
+{% highlight java linenos %}
+class CureAction extends Action {
+    private Member member;
+    private Disease disease;
+    private City city;
+
+    public void execute() {
+        member.consumeOnAction(); // may throw a NoActionPointRemainingException...
+        if(member.team().hasDiscoveredCureFor(diseases)) {
+            city.removeAllCubes(disease);
+        }
+        else {
+            city.removeOneCube(disease);
+        }
+    }
+}
+{% endhighlight %}
+
+Pourquoi @world.getCity("Manille")@ et pas @cityRepository.get("Manille")@
+Il ne faut pas oublier qu'il s'agit d'une plateforme de jeu, et que par conséquent, il peut y avoir plusieurs parties simultanément, que les mêmes joueurs peuvent jouer plusieurs parties successives avec la même équipe ou des équipes différentes. Il faut donc récupérer une ville (et son état d'infection) dans le contexte de la partie en cours et surlaquelle s'applique l'action. 
+
+p(sidenote). ActionFactory#createCureAction(...)
+
+L'action de traitement de la maladie est ensuite créée puis executée (lignes 2 et 3). L'execution de cette action fait intervenir plusieurs éléments: `member`, `team`, `city` et `disease`. De plus, certains
+
+Le `World` (ou `Board`) sert donc de point d'entrée, ou racine, à l'ensemble de notre partie. Il a aussi pour rôle de maintenir à tout moment l'intégrité de notre modèle, il est le garant que toutes les actions faites au cours de la partie soient cohérentes. Cela nous amène aux notions d'Aggregate et d'AggregateRoot.
+
+Un agrégat (Aggregate) est un groupe d'objet qui, vu de l'exterieur, agit comme une seule entité. La racine d'un agrégat (AggregateRoot) est l'unique point d'entrée, c'est le seul objet que l'exterieur peux manipuler et référencé. Il est de la responsabilité de la racine de maintenir un état cohérent dans la grappe d'objets qui compose l'aggrégat. Les éléments exterieurs de l'aggrégat ne peuvent en aucun avoir de référence vers les entités de l'agrégat autre que la racine.
+
+De plus, comme nous souhaitons adopter une approche de type Event Sourcing, il faut que à chaque changement d'état de la partie corresponde un évènement. L'une des caractéristique interessante de l'Event Sourcing est aussi de pouvoir rejouer ces évènements et arriver au même état.
+
+Voyons comment nous pouvons arriver à cela.
+
+Definissons tout d'abord un premier prototype pour nos AggregateRoot:
+
+{% highlight java linenos %}
+abstract class AggregateRoot<E extends DomainEvent> {
+
+    private int version = 0;
+    private Id id = Id.undefined();
+
+    public final Id aggregateId() {
+        return id;
+    }
+
+    protected void applyNewEvent(E event) {
+        applyEvent(event, true);
+    }
+
+    public void loadFromHistory(Stream<E> stream) {
+        stream.foreach(new C<E>() {
+            public void apply(E event) {
+                applyEvent(event, false);
+            }
+        });
+    }
+
+    private void applyEvent(E event, boolean isNew) {
+        if(!id.isUndefined() && !id.equalTo(event.aggregateId())) {
+            throw new IncompatibleEventIdException(this.id, event.aggregateId());
+        }
+        internalEventHandler().handle(event);
+        if(isNew) {
+            unitOfWork().registerNew(event);
+        }
+    }
+
+    protected void assignId(Id newId) {
+        this.id = newId;
+    }
+
+    protected abstract EventHandler<E> internalEventHandler();
+
+    protected abstract UnitOfWork unitOfWork();
+}
+{% endhighlight %}
+
+Explications:
+
+...
+
+* "Unit of work (Martin Fowler)":http://martinfowler.com/eaaCatalog/unitOfWork.html
+
+
+{% highlight java linenos %}
+@NotThreadSafe
+public class UnitOfWork {
+    private List<DomainEvent> uncommitted = new ArrayList<DomainEvent>();
+    public void registerNew(DomainEvent event) {
+        uncommitted.add(event);
+    }
+}
+{% endhighlight %}
+
+
+Utilisons notre AggregateRoot sur notre World:
+
+{% highlight java linenos %}
+public class World extends AggregateRoot<WorldEvent> {
+    private final UnitOfWork uow;
+    private final WorldEventHandler eventHandler;
+    
+    // ~~~ World state
+    private UserId ownerId;
+    private Difficulty difficulty;
+    private MemberStates memberStates;
+    private CityStates cityStates;
+    private Set<Disease> eradicatedDiseases;
+    private RandomSequence randomSequence;
+    //
+
+
+    public World(UnitOfWork uow) {
+        this.uow = uow;
+        this.eventHandler = new AnnotationBasedEventHandler(this);
+    }
+
+    public void createWorld(Id newId, User owner, Difficulty difficulty) {
+        if(!aggregateId().isUndefined()) {
+            throw new EntityIdAlreadyAssignedException(aggregateId(), newId);
+        }
+        applyNewEvent(new WorldCreatedEvent(newId, 
+                                            owner.userId(), 
+                                            difficulty, 
+                                            new RandomSequence()));
+    }
+
+    private void doCreateWorld(WorldCreatedEvent event) {
+        assignId(event.aggregateId());
+        this.difficulty = event.difficulty();
+        this.ownerId = event.ownerId();
+        this.randomSequence = event.randomSequence();
+        this.memberStates = new MemberStates();
+        this.cityStates = new CityStates();
+        this.eradicatedDiseases = new HashSet<Disease>();
+    }
+
+    public void treatCity(Member member, City city, Disease disease) {
+        MemberState memberState = memberStates.getStateOf(member);
+        // fail if it is not player's turn or no more action point
+        memberState.ensureActionIsAuthorized(); 
+
+        CityState cityState = cityStates.getStateOf(city);
+        int cityDiseaseCubes = cityState.numberOfCubes(disease);
+        if(cityDiseaseCubes==0) {
+            throw new NoDiseaseToCureException(aggregateId(), city, disease);
+        }
+
+        applyNewEvent(new WorldMemberActionSpentEvent(aggregatId(), member.id()));
+
+        int nbCubeTreated = 0;
+        if(hasCureFor(disease) || member.role()==Role.Medic) {
+            nbCubeTreated = cityDiseaseCubes;
+            applyNewEvent(new WorldCityCuredEvent(aggregatId(), 
+                                                  member.id(), 
+                                                  city, 
+                                                  disease));
+        }
+        else {
+            nbCubeTreated = 1;
+            applyNewEvent(new WorldCityTreatedEvent(aggregatId(),
+                                                    member.id(), 
+                                                    city, 
+                                                    disease));
+        }
+
+        // check for eradication
+        int worldDiseaseCubes = cityStates.numberOfCubes(disease);
+        if(worldDiseaseCubes==nbCubeTreated) {
+            applyNewEvent(new WorldDiseaseEradicatedEvent(aggregateId(), 
+                                                          member.id(), 
+                                                          disease));
+        }
+    }
+    
+    private void doTreatCity(WorldCityTreatedEvent event) {
+        CityState cityState = cityStates.getStateOf(event.city());
+        cityState.removeOneCube(event.disease());
+    }
+
+    private void doCureCity(WorldCityCuredEvent event) {
+        CityState cityState = cityStates.getStateOf(event.city());
+        cityState.removeAllCubes(event.disease());
+    }
+
+    private void doMarkDiseaseEradicated(WorldDiseaseEradicatedEvent event) {
+        eradicatedDiseases.add(event.disease());
+    }
+
+    protected UnitOfWork unitOfWork() {
+        return uow;
+    }
+
+    protected EventHandler<WorldEvent> internalEventHandler() {
+        return eventHandler;
+    }
+}
+{% endhighlight %}
+
+Une des choses principales:
+
+* toutes les vérifications doivent être faite au niveau de la méthode métier: `create` ou `cureCity`. Les méthodes qui vont appliquer les évènements n'effectuent aucun contrôle sur ceux-ci, toutes les vérifications préalables ont normalement déjà été faites. Le comportement doit être le même que l'évènement soit appliqué la première fois ou relu depuis l'historique. Il s'agit là d'un point essentiel pour garantir que le rechargement de l'historique conduise exactement au même résultat.
+* `applyNewEvent(new WorldCreatedEvent(newId, owner.userId(), difficulty));` les évènements ne contiennent que des ValueObject et aucune référence d'entité.
+
+
+Evolution et simplification:
+* utiliser l'introspection pour trouver les méthodes annotées '@EventHandler'... et retourner un `new AnnotationBasedEventHandler(this)`.
+
+
+
+
+<blockquote><p>Un modèle peut contenir un grand nombre d’objets du domaine. Aussi grande soit l’attention portée à la conception, il arrive que de nombreux objets soient associés entre eux, créant un réseau de relations complexe.<br/>
+(...)<br/>
+Bien souvent, le défi avec les modèles n’est pas de faire en sorte qu’ils soient suffisamment complets, mais de les rendre les plus simples et les plus compréhensibles possible. La plupart du temps, il s’avère payant d’éliminer ou de simplifier des relations du modèle. A moins bien sûr qu’elles ne recèlent une compréhension profonde du domaine.
+</p><small><a href="http://blog.infosaurus.fr/post/2009/10/13/DDD-Vite-Fait,-les-fondamentaux-de-DDD">DDD vite Fait</a></small></blockquote>
+
+
+
+
+
+
+Est-ce que cela veux dire que nous aurons un seul AggregateRoot ? dans le cas d'une partie c'est effectivement bien possible, toutes les entités sont effectivement rattachées à cette racine. La représentation du jeu physique du jeu l'illustre d'ailleurs très bien, toutes les cartes, tous les pions et tous les marqueurs reposent sur le plateau de jeu.
+
+Ceci étant, l'évolution de notre application fera certainement apparaitre d'autres aggrégats lié à la gestion des utilisateurs.
+
+<div class="sidenote">
+    `CityGraph` un `ValueObject`?
+</div>
+Note: nous avions evoqué tout à l'heure la notion de graphe pour les recherches dans le réseau des villes. Comme ce graphe n'a aucune raison de changer à l'heure actuelle des rêgles (il n'y a pas *pour le moment* de gestion d'axe de transport coupé tel que: intempéries, innondations, zone de quarantaine, guerre civile, etc.), il est tout à fait envisageable d'avoir une seule instance de ce graphe partagée par toutes les parties.
+
+
+<blockquote><p>
+ACTION 2
+Après concertation avec Jane, Brian développe un plan, mais il doit se rendre à Chennai en vue de l'exécuter. Heureusement Brian a la carte Manille dans sa main. Il dépense sa seconde action et joue la carte afin de faire un Vol Charter, et déplace son pion pour rejoindre Jane à la Station de Recherche de Chennai.
+</p><small>Rêgle du jeu ~ OU LES CHOSES SE PASSENT</small></blockquote>
+
+<blockquote><p>
+ACTION 3
+Ensemble à Chennai, Brian et Jane conspirent pour réaliser leur plan. Brian dépense une action pour Partager des connaissances, et reçoit la carte Chennai de Jane, qui lui a dit plus tôt qu'elle l'avait dans sa main.
+</p><small>Rêgle du jeu ~ OU LES CHOSES SE PASSENT</small></blockquote>
+
+<blockquote><p>
+ACTION 4
+Maintenant Brian et son plan sont prêts. Il va Découvrir un Remède pour la maladie Noire dans la Station de Recherches de Chennai. Normalement, un joueur doit avoir 5 cartes de la bonne couleur pour le faire, mais comme Brian est le Scientifique - il en a seulement besoin de 4. Il défausse ses 4 cartes Noire et dépense ses 4 actions pour Découvrir un Remède. Le marqueur Remède Noir est placé face Fiole sur la case correspondante de la zone des Remèdes Découverts.
+</p><small>Rêgle du jeu ~ OU LES CHOSES SE PASSENT</small></blockquote>
+
+<blockquote><p>
+TIRER 2 CARTES
+Ayant réalisé ses 4 actions. Brian passe à la phase suivante de son tour et tire 2 cartes de la pile Joueur. Aucune carte n'est une Epidémie, donc Brian les ajoute toutes les deux à sa main et passe à la phase suivante de son tour - Jouer l'Infecteur.
+</p><small>Rêgle du jeu ~ OU LES CHOSES SE PASSENT</small></blockquote>
+
+
+* Etant donné un plateau de jeu mis en place (notre entité World à renomer en Board?)
+* Et deux joueurs: Grégory le Médecin et Snoop le
+
+
+
+
+h3. un détour vers l'initialisation d'une partie
+
+Faisons court et décrivons cela sous forme de suite d'évènements. On peux constater que plusieurs AggregateRoot apparaissent alors: chacun des utilisateurs et le jeu auquel ils vont participer.
+Le service @AuthentificationService@ est lui aussi d'une certaine manière un AggregatRoot mais de type "système".
+
+|_. Aggregate  |_. DomainEvent |
+| @BigBrother@|@LoginFailedEvent("wrong credentials")@|
+| @User("brian")@  | @UserLoggedEvent("brian")@ |
+| @User("brian")@  | @UserProfilePasswordChangedEvent("brian", seed: "b993d", hash: "670a859515bd69a3c30483eff6cb993d")@ |
+| @User("brian")@  | @GameCreateEvent(id: 17, owner:"brian", difficulty: normal)@ |
+| @Game(17)@  | @GameInitializationDoneEvent(id: 17)@ |
+| @Game(17)@  | @GameWaitingForPlayerEvent(id: 17)@ |
+| @User("brian")@  | @UserJoinedGameEvent("brian", game_id: 17)@ |
+| @Game(17)@  | @GamePlayerJoinedEvent(id: 17, user: "brian")@ |
+| @User("serge")@  | @UserLoggedEvent("serge")@ |
+| @User("serge")@  | @UserGameSearchedEvent("serge", filter: "owner=brian")@ |
+| @User("serge")@  | @UserJoinedGameEvent("serge", game_id: 17)@ |
+| @Game(17)@  | @GamePlayerJoinedEvent(id: 17, user: "serge")@ |
+| @Game(17)@  | @GamePlayerNicknameChangedEvent(id: 17, user: "serge", nickname: "jane")@ |
+| @Game(17)@  | @GamePlayerReadyToStartEvent(id:17, user: "jane")@ |
+| @Game(17)@  | @GamePlayerReadyToStartEvent(id:17, user: "brian")@ |
+| @Game(17)@  | @GameStartedEvent(id:17)@ |
+| @Game(17)@  | @GameCardsShuffledEvent(id: 17, random_seed: 45,612,349L)@ |
+| @Game(17)@  | @GameMembersRoleAffectedEvent(id:17, member:"jane", role: "Experte en Opérations")@ |
+| @Game(17)@  | @GameMembersRoleAffectedEvent(id:17, member:"brian", role: "Scientifique")@ |
+| @Game(17)@  | @GameMemberCardPickedEvent(id: 17, member:"jane", card: "Manille")@ |
+| @Game(17)@  | @GameMemberCardPickedEvent(id: 17, member:"jane", card: "Manau")@ |
+| @Game(17)@  | @GameMemberCardPickedEvent(id: 17, member:"jane", card: "Le Caire")@ |
+| @Game(17)@  | @GameMemberCardPickedEvent(id: 17, member:"brian", card: "Istanbul")@ |
+| @Game(17)@  | @GameMemberCardPickedEvent(id: 17, member:"brian", card: "Paris")@ |
+| @Game(17)@  | @GameMemberCardPickedEvent(id: 17, member:"brian", card: "Chenai")@ |
+| @Game(17)@  | @GameMemberCardPickedEvent(id: 17, member:"brian", card: "Alger")@ |
+| @Game(17)@  | @GameMemberInitialPositionDefinedEvent(id: 17, member:"brian", city: "Atlanta")@ |
+| @Game(17)@  | @GameMemberInitialPositionDefinedEvent(id: 17, member:"brian", city: "Atlanta")@ |
+|\2.  ... |
+
+
+# Architecture globale
+
+# Et le Domain Driven Design?
