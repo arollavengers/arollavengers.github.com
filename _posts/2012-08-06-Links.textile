@@ -48,6 +48,7 @@ excerpt: |
 *** "Fluid 960 Grid System":http://960.gs/
 *** "1140 CSS Grid":http://cssgrid.net/
 *** "Which Is Right for Me? 22 Responsive CSS Frameworks and Boilerplates Explained":http://designshack.net/articles/css/which-is-right-for-me-22-responsive-css-frameworks-and-boilerplates-explained/ ~ On remarquera particulierement le framework "The Semantic Grid System":http://semantic.gs/ qui utilise Less, Stylus ou Sass pour disposer des fonctionalités d'un framework de grille tout en conservant la sémantique du contenu. <span class='label sucess'>2012/08/08</span> <span class='label warning'>+1</span>
+* "CSS Style Guides":http://css-tricks.com/css-style-guides/ <span class='label sucess'>2012/08/19</span> <span class='label warning'>+1</span>
 
 * RIA/Single page Application
 ** "Journey Through The JavaScript MVC Jungle":http://coding.smashingmagazine.com/2012/07/27/journey-through-the-javascript-mvc-jungle/
@@ -59,9 +60,13 @@ excerpt: |
 *** "Build a Contacts Manager Using Backbone.js: Part 1":http://net.tutsplus.com/tutorials/javascript-ajax/build-a-contacts-manager-using-backbone-js-part-1/
 *** "BACKBONE AND EMBER":http://smus.com/backbone-and-ember/
 *** "Building a Text-Based UI with Backbone and Charm":http://tobyho.com/2012/07/19/backbone-charm-text-based-ui/
+*** "Backbone.js and Socket.io":http://developer.teradata.com/blog/jasonstrimpel/2011/11/backbone-js-and-socket-io
+*** "Backbone Introduction":http://thomasdavis.github.com/2011/02/01/backbone-introduction.html
 ** "knockoutjs":http://knockoutjs.com/
 *** "Knockout.js vs. Backbone.js – Part 1":http://ifandelse.com/?p=61
 *** "Knockout.js vs. Backbone.js – Part 2":http://ifandelse.com/?p=70
+*** "learn.knockoutjs.com":http://learn.knockoutjs.com/ <span class='label sucess'>2012/08/11</span> <span class='label warning'>+1</span>
+
 
 * Websocket
 ** "socket.io":http://socket.io/
@@ -71,6 +76,7 @@ excerpt: |
 ** "Require.js":http://requirejs.org/
 ** "Underscore":http://documentcloud.github.com/underscore/
 ** "jquery":http://jquery.com/
+*** "knob":http://anthonyterrien.com/knob/
 ** "Moment.js":http://momentjs.com/
 
 * Spring 

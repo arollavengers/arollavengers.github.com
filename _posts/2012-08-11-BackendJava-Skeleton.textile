@@ -10,6 +10,7 @@ tags:
 published: false
 comments: false
 excerpt: |
+  <span class="label warning">In Progress // Incubation</span><br/>
   Voici quelques explication sur l'organisation du Backend-java.
 ---
 {{page.excerpt | markdownify }}

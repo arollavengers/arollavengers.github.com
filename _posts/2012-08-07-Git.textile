@@ -7,6 +7,7 @@ tags:
 published: false
 comments: false
 excerpt: |
+  <span class="label warning">In Progress // Incubation</span><br/>
   Git vite fait...
 ---
 {{page.excerpt | markdownify }}
