@@ -337,8 +337,16 @@ h1 small {
 
 }
 
-  .post h1.entry-title {
+  .post h1 {
+    font-size:140%;
+  }
+
+  .post h2 {
     font-size:120%;
+  }
+
+  .post h3 {
+    font-size:110%;
   }
 
   .post .entry-time {
